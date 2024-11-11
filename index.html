@@ -1,0 +1,376 @@
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0J350BP7YE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0J350BP7YE');
+    </script>
+
+    <meta charset="utf-8" />
+    <title>Segment Any Part in 3D Objects</title>
+
+    <!-- TODO double check these are updated -->
+    <!-- Website Metadata -->
+    <meta content="Segment Any Part in 3D Objects"
+        name="description" />
+    <meta content="Segment Any Part in 3D Objects" property="og:title" />
+    <meta content="Segment Any Part in 3D Objects"
+        property="og:description" />
+    <meta content="data/favicon.png" property="og:image" />
+    <meta content="Segment Any Part in 3D Objects" property="twitter:title" />
+    <meta content="Segment Any Part in 3D Objects"
+        property="twitter:description" />
+    <meta content="data/favicon.png" property="twitter:image" /> 
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" /> 
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script
+        type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Changa One:400,400italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500", "Bungee Outline:regular"] } });</script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+
+    <!-- JQuery, scripts etc -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <script src="js/carousel_utils.js" type="text/javascript"></script>
+
+    <!-- Stylesheets; tabler icons, fonts, ...-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <link href="data/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- bulma css template -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+    <!-- model viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <!-- Title, Subtitle, Authors -->
+        <div>
+            <h1 class="title">
+                SAMPart3D: Segment Any Part in 3D Objects
+            </h1>
+
+            <!-- Author list -->
+            <div class="base-row">
+                <div style="padding: 2px;">
+                    <a href="https://yhyang-myron.github.io/" target="_blank" class="author-text">
+                        Yunhan Yang
+                        <span class="text-star">1</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://scholar.google.com/citations?user=lHb5gzoAAAAJ" target="_blank" class="author-text">
+                        Yukun Huang
+                        <span class="text-star">1</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://scholar.google.com/citations?user=b7ZJV9oAAAAJ" target="_blank" class="author-text">
+                        Yuan-Chen Guo
+                        <span class="text-star">2</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://scholar.google.com/citations?hl=en&user=e_fXFNIAAAAJ" target="_blank" class="author-text">
+                        Liangjun Lu
+                        <span class="text-star">1</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://xywu.me/" target="_blank" class="author-text">
+                        Xiaoyang Wu
+                        <span class="text-star">1</span>
+                    </a>
+                </div>
+                <div style="padding: 2px;">
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://www.eee.hku.hk/~elam/" target="_blank" class="author-text">
+                        Edmund Y. Lam
+                        <span class="text-star">1</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://yanpei.me/" target="_blank" class="author-text">
+                        Yan-Pei Cao
+                        <span class="text-star">2</span>
+                    </a>
+                    <div style="width: 1.25em; display: inline-block"></div>
+                    <a href="https://xh-liu.github.io/" target="_blank" class="author-text">
+                        Xihui Liu
+                        <span class="text-star">1</span>
+                    </a>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <h1 id="affiliation"><span class="text-star">1</span> The University of Hong Kong 
+                <span style="display:inline-block; width: 20px;"></span>
+                <span class="text-star">2</span> VAST </h1>
+            </div>
+        </div>
+        <!-- Submission status -->
+        <!-- <div class="title-row">
+            <h2 class="subheader">CVPR 2024</h1>
+        </div> -->
+
+        <!-- Paper / code / data URLs -->
+        <!-- TODO: Update arxiv/code/data link -->
+        <div class="base-row add-top-padding">
+            <!-- Paper -->
+            <a href="" target="_blank" class="link-block">
+                <figure>
+                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+                        alt="paper"
+                        srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png"
+                        style="max-height: 4em" />
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">Paper</strong>
+                </figcaption>
+            </a>
+            <!-- Code -->
+            <a href="https://github.com/Pointcept/SAMPart3D" target="_blank" class="link-block">
+                <figure>
+                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+                        alt="code" style="max-height: 4em" />
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">Code</strong>
+                </figcaption>
+            </a>
+            <!-- Data -->
+            <a href="https://huggingface.co/datasets/yhyang-myron/PartObjaverse-Tiny" target="_blank" class="link-block">
+                <figure>
+                    <img src="data/database_icon.jpg" alt="data" style="max-height: 4em" />
+                </figure>
+                <figcaption>
+                    <strong class="link-labels-text">Data: PartObjaverse-Tiny</strong>
+                </figcaption>
+            </a>
+        </div>
+
+        <!-- TL;DR + Teaser video -->
+        <div class="section base-row add-top-padding">
+            <img src="data/teaser.png" style="max-width: 100%" />
+        </div>
+
+        <div class="section base-row add-top-padding">
+            <h1 id="abstract" style="margin-top: 30px; font-size: 40px;">Overview</h1>
+            <p class="paragraph">
+                <b>SAMPart3D</b>, a scalable zero-shot 3D part segmentation framework that segments any 3D object into semantic parts at 
+                multiple granularities, without requiring predefined part label sets as text prompts. <b>For scalability</b>, 
+                we use text-agnostic vision foundation models to distill a 3D feature extraction backbone, allowing scaling to large 
+                unlabeled 3D datasets to learn rich 3D priors. <b>For flexibility</b>, we distill scale-conditioned part-aware 3D features 
+                for 3D part segmentation at multiple granularities.
+            </p>
+
+            <h1 style="margin-top: 5px; font-size: 25px;">Highlight: </h1>
+
+            <div class="highlight-container">
+                <ul>
+                    <li>A pipeline to segment multi-granularity parts in 3D objects.</li>
+                    <li>A 3D point cloud encoder pretrained on large-scale 3D objects from Objaverse, distilling visual features from DINO-v2.</li>
+                    <li>A 3D part segmentation dataset which provides detailed semantic-level and instance-level part annotations for complex 3D objects.</li>
+                </ul>
+            </div>
+            
+            <h1 class="tldr">
+                Click the thumbnails below to load meshes from <b>Objaverse</b> or <b>Generated</b> meshes from Tripo AI website and Rodin Gen-1 website, and 
+                see multi-granularity part segmentation. (The names of the generated meshes are labeled with Tripo-* and Rodin-*.)
+            </h1>
+            <div id="main-results">
+                <div class="switcher" data-switcher-title="Select the Segmentation Scale">
+                    <div data-switcher-label="1.5"></div>
+                    <div data-switcher-label="1.0"></div>
+                    <div data-switcher-label="0.5"></div>
+                    <div data-switcher-label="0.0"></div>
+                </div>
+                <div id="image-compare-canvas" class="image-compare" data-before-label="Mesh" data-after-label="Segments">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="video-bar base-row">
+                    <button id="play-btn" class="video-btn fa fa-lg fa-pause" onclick="play_pause()" style="margin-right: 0px;"></button>
+                    <div style="position: absolute; right: 0px;">
+                        <button class="video-btn fa fa-arrows-alt fa-lg" onclick="fullscreen()"></button>
+                        <!-- <button class="video-btn fa fa-download fa-lg" onclick="download()"></button> -->
+                    </div>
+                </div>
+                <div>
+                    <button class="results-slide-arrow" id="results-slide-arrow-prev" onclick="results_slide_left()">
+                        &#8249;
+                    </button>
+                    <div class="results-slide-row" id="results-objs-scroll">
+                        <div data-img-src="data/renders/megan/thumbnail.png" data-label="Megan"></div>
+                        <div data-img-src="data/renders/cannon/thumbnail.png" data-label="Cannon"></div>
+                        <div data-img-src="data/renders/cactus/thumbnail.png" data-label="Cactus"></div>
+                        <div data-img-src="data/renders/fighter/thumbnail.png" data-label="Fighter"></div>
+                        <div data-img-src="data/renders/tripo-rabbit/thumbnail.png" data-label="Tripo-Rabbit"></div>
+                        <div data-img-src="data/renders/tripo-lizard/thumbnail.png" data-label="Tripo-Lizard"></div>
+                        <div data-img-src="data/renders/rodin-catapult/thumbnail.png" data-label="Rodin-Catapult"></div>
+                        <div data-img-src="data/renders/rodin-dragon/thumbnail.png" data-label="Rodin-Dragon"></div>
+                    </div>
+                    <button class="results-slide-arrow" id="results-slide-arrow-next" onclick="results_slide_right()">
+                        &#8250;
+                    </button>
+                </div>
+            </div> 
+        </div>
+
+        <h1 style="margin-top: 30px; font-size: 25px; text-align: center;">Point Clouds Multi-granularity Segmentation</h1>
+        <div class="level">
+            <div class="level-item">
+                <model-viewer
+                    src="data/mesh/8512669067e448a9b1d3fb78bf0c61c6.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    id="viewer"
+                    src="data/mesh/character-1.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    src="data/mesh/character-2.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    src="data/mesh/character-3.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+            </div>
+        </div>
+
+        <div class="level">
+            <div class="level-item">
+                <model-viewer
+                    src="data/mesh/f121301624174b179ca4d50158797b03.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    src="data/mesh/motorcycle-1.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    src="data/mesh/motorcycle-2.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+                <model-viewer
+                    src="data/mesh/motorcycle-3.glb"
+                    style="width: 25%; height: 300px;"
+                    auto-rotate shadow-intensity="0" camera-controls touch-action="pan-y">
+                </model-viewer>
+            </div>
+        </div>
+
+        <div class="section add-top-padding">
+            <div>
+                <div class="base-row">
+                    <div>
+                        <h1 style="margin-top: 30px; font-size: 40px;">Method</h1>
+                        <!-- <img src="data/pipeline.png" style="max-width: 100%" /> -->
+                        <video id="main-video" muted autoplay loop controls>
+                            <source id="mp4" src="data/method.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div>
+                        <h1 style="margin-top: 30px; font-size: 40px;">Part Editing</h1>
+                        <p class="paragraph">
+                            The resulting 3D part segmentation can directly support various applications, including
+                            part material editing, part geometry editing, and click-based hierarchical segmentation.
+                        </p>
+                        <video id="main-video" muted autoplay loop controls>
+                            <source id="mp4" src="data/part-editing.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div>
+                        <h1 style="margin-top: 30px; font-size: 40px;">PartObjaverse-Tiny Dataset</h1>
+                        <p class="paragraph">
+                            PartObjaverse-Tiny, a 3D part segmentation dataset which provides detailed semantic-level and instance-level part annotations for 200 complex 3D objects.
+                        </p>
+                        <img src="data/partobj_vis.png" style="max-width: 100%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="section citation add-top-padding">
+            <h1 id="abstract">Citation </h1>
+            <p class="paragraph"> If you use this work or find it helpful, please consider citing: </p>
+            <pre id="codecell0">@inproceedings{***,
+    &nbsp;author = {Yang, Yunhan and Huang, Yukun and Guo, Yuan-Chen and Lu, Liangjun and Wu, Xiaoyang and Edmund Y., Lam and Cao, Yan-Pei and Liu, Xihui},
+    &nbsp;title = {Segment Any Part in 3D Objects},
+    &nbsp;booktitle = {arXiv},
+    &nbsp;year = {2024},
+    } </pre>
+                </div>
+                    <footer>
+                        <div class="section" style="margin-top: 40px;">
+                            <p class="paragraph">
+                                This website is constructed using the template provided by <a href="https://www.garfield.studio/">GARField</a>
+                                and <a href="https://idea-research.github.io/DreamWaltz/">DreamWaltz</a>.
+                            </p>
+                        </div>
+                    </footer>
+                </div>
+
+    <!-- Video references for main results... -->
+    <video id="megan" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/megan/video.webm" type="video/webm">
+        <source src="data/renders/megan/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="cannon" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/cannon/video.webm" type="video/webm">
+        <source src="data/renders/cannon/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="cactus" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/cactus/video.webm" type="video/webm">
+        <source src="data/renders/cactus/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="fighter" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/fighter/video.webm" type="video/webm">
+        <source src="data/renders/fighter/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="tripo-rabbit" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/tripo-rabbit/video.webm" type="video/webm">
+        <source src="data/renders/tripo-rabbit/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="tripo-lizard" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/tripo-lizard/video.webm" type="video/webm">
+        <source src="data/renders/tripo-lizard/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="rodin-catapult" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/rodin-catapult/video.webm" type="video/webm">
+        <source src="data/renders/rodin-catapult/video.mp4" type="video/mp4">
+    </video>
+
+    <video id="rodin-dragon" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/renders/rodin-dragon/video.webm" type="video/webm">
+        <source src="data/renders/rodin-dragon/video.mp4" type="video/mp4">
+    </video>
+
+</body>
